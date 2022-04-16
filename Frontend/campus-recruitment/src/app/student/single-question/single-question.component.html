@@ -1,0 +1,27 @@
+<!-- <p>this is single question section</p>
+<div >
+    <p>{{selectedQuestion.id}}</p>
+    <p>{{selectedQuestion.questions}}</p> -->
+
+    
+     <div class="container-fluid">
+      <p>{{timeLeft}} Seconds Left....</p>
+       <form class="form-group" [formGroup]="savequestion" (ngSubmit)="onSbmit(savequestion)">
+         <label for="exampleFormControlTextarea1"  style="text-align: center;">Write code here</label>
+         <select formControlName="language">
+           <option value=""> Select Language</option>
+          <!-- <small *ngIf="(!savequestion.get('passing').valid&& savequestion.get('passing').touched)" class="text-danger">Passing year is required</small> -->
+        <option value="c"> c</option>
+        <option value="C++">C++ </option>
+        <option value="java">java</option>
+        <option value="php"> php</option>
+        <option value="Ruby">ruby </option>
+        <option value="python">python</option>
+        <option value="other">other</option>
+      </select>
+         <textarea class="form-control"  formControlName="textarea" id="exampleFormControlTextarea1" cols="18"  rows="15" style="width: 600px;"></textarea>
+         <!-- <small *ngIf="(!savequestion.get('textarea').valid)" class="text-danger">Answer are required</small> -->
+         <!-- <button class="btn btn-primary" (click)="onSkip()">skip</button><br><br> -->
+         <button class="btn btn-success mt-3" (click)="onSbmit(savequestion)">Submit</button>
+        </form>
+      </div>

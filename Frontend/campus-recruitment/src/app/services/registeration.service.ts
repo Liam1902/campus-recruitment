@@ -59,13 +59,17 @@ constructor(private http: HttpClient) {
  }
 
 
- getanser(data:any):Observable<any>{
+ saveAnswer(data:any):Observable<any>{
    return this.http.post('http://localhost:8080/campus_recruitment/answers',data,{headers: this.header})
  }
 
- getanswer(): Observable<any>{
-  return this.http.get('https://jsonplaceholder.typicode.com/todos/1',{ headers:this.header}).pipe(map(response => response));;
-}
+ updateAnswer(data: any) {
+   return this.http.post('http://localhost:8080/campus_recruitment/update-answer', data, { headers: this.header});
+ }
+
+ getAnswer() {
+   return this.http.get('http://localhost:8080/campus_recruitment/get-answer', { headers: this.header});
+ }
 
  getregisteration(data:any): Observable<any>{
   console.log("successfully connected ");

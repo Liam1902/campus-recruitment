@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'',redirectTo:'student'},
   {path:'student'},
   {path:'registration',component:RegisterationComponent},
-  {path:'question',component:QuestionComponent},
+  {path:'question/:id',component:QuestionComponent},
   {path:'nextpage',component:NextpageComponent},
   {path:'singlequestion',component:SingleQuestionComponent},
 ];

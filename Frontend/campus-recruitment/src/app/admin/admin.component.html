@@ -14,31 +14,26 @@
         <th>Email</th>
         <th>College Name</th>
         <th>Answer</th>
-        <th *ngIf="status"> View Answer/th>
+        <th> View Answer</th>
         <th>Status</th>
       </tr>
-      <div  *ngFor="let ans of ganswer ">
-        <tr>
-          <p>{{ans.id}}</p>
-          <td>{{ans.title}}</td>
-          <td>jkh</td>
-          <td>pradeep@gamil.com</td>
-          <td>ATC</td>
+        <tr *ngFor="let ans of ganswer">
+          <td>{{ans.answer.id}}</td>
+          <td>{{ans.student.name}}</td>
+          <td>{{ans.student.phone_number}}</td>
+          <td>{{ans.student.email}}</td>
+          <td>{{ans.student.college_name}}</td>
+          <td>{{ans.answer.answer}}</td>
           <td>
-              <button (click)="viewAnswer()">See Answer</button>
-          </td>
-          <td *ngIf="status">Adssd</td>
-          <td>
-              <select formControlName="language">
+              <select>
                   <option value=""> status</option>
                  <!-- <small *ngIf="(!savequestion.get('passing').valid&& savequestion.get('passing').touched)" class="text-danger">Passing year is required</small> -->
-               <option value="fail"> Fail</option>
-               <option value="pass">Pass </option>
-               <option value="hold">Hold</option>
+               <option value="0"> Fail</option>
+               <option value="1">Pass </option>
+               <option value="2">Hold</option>
              </select>
           </td>
-        </tr>        
-      </div>
+        </tr>
       
       
       

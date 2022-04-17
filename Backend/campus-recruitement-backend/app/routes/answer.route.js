@@ -9,6 +9,6 @@ module.exports = function(app) {
   });
 
   app.post("/campus_recruitment/answers", controller.Answer);
-
- 
+  app.post("/campus_recruitment/update-answers", controller.updateAnswer);
+  app.get('/campus_recruitment/get-answer', controller.getAnswers);
 };

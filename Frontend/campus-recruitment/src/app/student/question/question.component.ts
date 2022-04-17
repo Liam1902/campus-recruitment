@@ -1,6 +1,6 @@
 import { RegisterationService } from './../../services/registeration.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -15,6 +15,7 @@ export class QuestionComponent implements OnInit {
   question_select: any;
   gquestion :any = [];
   random:any;
+  student_id: any = null;
   
 
   constructor(private quest: RegisterationService,
@@ -22,7 +23,9 @@ export class QuestionComponent implements OnInit {
       private route:ActivatedRoute,
       private question:RegisterationService) { 
    this.question.getquestion();
-    
+    this.route.paramMap.subscribe((param: ParamMap)=> {
+      this.student_id = param.get('id');
+    });
   }
   
   
@@ -37,15 +40,7 @@ export class QuestionComponent implements OnInit {
    this.question.getquestion().subscribe( 
       
     (res) => {
-      console.log(res);
       this.gquestion = res
-      // this.question_select={
-      //   id: res.id,
-      //   questin:res.name
-      // }
-
-        
-    
   },(error) =>{
     console.log('error is runing'+ error);
   },
@@ -54,11 +49,16 @@ export class QuestionComponent implements OnInit {
 
   }
   public selectedQuestion:any;
-  onSelet(data:any){
-    this.call = true;
-    this.selectedQuestion = data;
-  }
 
+  onSelet(data:any){
+    console.log(data);
+    this.call = true;
+    let value = {
+      question_id: data.id,
+      student_id: this.student_id
+    }
+    this.selectedQuestion = value;
+  }
 }
 
 

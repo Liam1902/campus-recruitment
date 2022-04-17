@@ -9,30 +9,26 @@ import { RegisterationService } from '../services/registeration.service';
 export class AdminComponent implements OnInit {
   status=false;
   ganswer:any=[];
-  constructor(private getanswer :RegisterationService ) { 
-    this.getanswer.getanswer();
+  constructor(private registrationService :RegisterationService ) { 
   }
   
   ngOnInit(): void {
-    this.viewTable();
+    this.getAnswer();
   }
 
-
-  viewAnswer(){
-    this.status=true;
-  }
-     
-  viewTable(){
-
-
-    this.getanswer.getanswer().subscribe((res) => {
-      console.log(res);
-      this.ganswer=res;
-    },
-    (error)=>{
-      console.log(error);
+  getAnswer() {
+    this.registrationService.getAnswer().subscribe({
+      next: (res: any) => {
+        this.ganswer = res.data;
+      }, error: err => {
+        console.log(err);
+      }, complete: () => {
+        console.log('complete');
+      }
     })
-  
   }
 
+  viewAnswer() {
+
+  }
 }

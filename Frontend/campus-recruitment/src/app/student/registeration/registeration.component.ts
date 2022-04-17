@@ -51,16 +51,14 @@ export class RegisterationComponent implements OnInit {
       }
 
     this.form=true;
-    console.log(this.registerform);
     this.register=this.RegisterationService.getregisteration(registeration_data).subscribe( 
       
       (res) => {
-        console.log(res);
+        this.routes.navigate(['../question', res.data.id],{relativeTo: this.route})
     },(error) =>{
       console.log('error is runing'+ error);
     },
     );
-    this.routes.navigate(['../question'],{relativeTo: this.route})
   }
 
   onClick(){

@@ -18,7 +18,7 @@ exports.Student = (req, res) => {
     .then(student=> {
         if(student){
            
-            res.status(200).send("student sucessfully register")
+            res.status(200).send({message: 'Student register succesfully', data: student});
         }else{
             res.status(500).send({ message:"student not register try again"});
         }

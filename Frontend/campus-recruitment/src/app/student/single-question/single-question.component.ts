@@ -15,7 +15,7 @@ export class SingleQuestionComponent implements OnInit {
   minutes = 30;
   seconds = 60;
   timer: any;
-  draftTimer = 90;
+  draftTimer = 10;
   answerId = null;
 
   interval: any;
@@ -39,7 +39,7 @@ export class SingleQuestionComponent implements OnInit {
         return;
       } 
       if(this.draftTimer === 0) {
-        this.draftTimer = 90;
+        this.draftTimer = 10;
         if(this.answerId == null) {
           this.createAnswer(this.savequestion); 
         } else {
@@ -51,11 +51,16 @@ export class SingleQuestionComponent implements OnInit {
         this.seconds = 60;
       }
       this.seconds = this.seconds - 1; 
+      this.draftTimer = this.draftTimer - 1;
     }, 1000);
   }
 
   onSubmit(data: any) {
-    this.createAnswer(data);
+    if(this.answerId == null) {
+      this.createAnswer(data);
+    } else {
+      this.updateAnswer(data);
+    }
     clearInterval(this.timer);
     this.router.navigate(['/nextpage']);
   }
@@ -81,7 +86,8 @@ export class SingleQuestionComponent implements OnInit {
   updateAnswer(data: any) {
     let answer_data = {
       answer: data.value.textarea,
-      language: data.value.language
+      language: data.value.language,
+      id: this.answerId
     };
     this.registrationService.updateAnswer(answer_data).subscribe({
       next: (res: any) => {

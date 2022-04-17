@@ -5,8 +5,8 @@
 
     
      <div class="container-fluid">
-      <p>{{timeLeft}} Seconds Left....</p>
-       <form class="form-group" [formGroup]="savequestion" (ngSubmit)="onSbmit(savequestion)">
+       <form class="form-group" [formGroup]="savequestion" (ngSubmit)="onSbmits(savequestion)">
+         <p>{{minutes}} Seconds Left....</p>
          <label for="exampleFormControlTextarea1"  style="text-align: center;">Write code here</label>
          <select formControlName="language">
            <option value=""> Select Language</option>
@@ -19,9 +19,10 @@
         <option value="python">python</option>
         <option value="other">other</option>
       </select>
-         <textarea class="form-control"  formControlName="textarea" id="exampleFormControlTextarea1" cols="18"  rows="15" style="width: 600px;"></textarea>
-         <!-- <small *ngIf="(!savequestion.get('textarea').valid)" class="text-danger">Answer are required</small> -->
+         <textarea class="form-control"  formControlName="textarea" id="exampleFormControlTextarea1" cols="18"  rows="15" style="width: 750px; height: 650px;"></textarea>
+         <small *ngIf="(!savequestion.get('textarea').valid &&savequestion.get('textarea').touched)" class="text-danger">Answer are required</small>
          <!-- <button class="btn btn-primary" (click)="onSkip()">skip</button><br><br> -->
-         <button class="btn btn-success mt-3" (click)="onSbmit(savequestion)">Submit</button>
+         <button class="btn btn-success mt-3" (click)="onSbmits(savequestion)" [disabled]="!savequestion.valid">Submit</button>
+         <!-- <button class="btn btn-success " (click)="onSave(savequestion)">Save</button> -->
         </form>
       </div>

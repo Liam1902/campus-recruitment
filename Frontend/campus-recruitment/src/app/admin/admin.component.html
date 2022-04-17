@@ -1,0 +1,46 @@
+
+<nav class="navbar navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" >Admin Portal </a>
+  </nav>
+
+
+      <h2>Student Exam Data</h2>
+    
+    <table>
+      <tr>
+          <th>Id</th>
+        <th>Name</th>
+        <th>Phone No.</th>
+        <th>Email</th>
+        <th>College Name</th>
+        <th>Answer</th>
+        <th *ngIf="status"> View Answer/th>
+        <th>Status</th>
+      </tr>
+      <div  *ngFor="let ans of ganswer ">
+        <tr>
+          <p>{{ans.id}}</p>
+          <td>{{ans.title}}</td>
+          <td>jkh</td>
+          <td>pradeep@gamil.com</td>
+          <td>ATC</td>
+          <td>
+              <button (click)="viewAnswer()">See Answer</button>
+          </td>
+          <td *ngIf="status">Adssd</td>
+          <td>
+              <select formControlName="language">
+                  <option value=""> status</option>
+                 <!-- <small *ngIf="(!savequestion.get('passing').valid&& savequestion.get('passing').touched)" class="text-danger">Passing year is required</small> -->
+               <option value="fail"> Fail</option>
+               <option value="pass">Pass </option>
+               <option value="hold">Hold</option>
+             </select>
+          </td>
+        </tr>        
+      </div>
+      
+      
+      
+    </table>
+

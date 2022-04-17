@@ -31,7 +31,8 @@
     <div class="form-group row">
       <label for="inputPassword3" class="col-sm-2 col-form-label">Mobile Number</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" formControlName="mobileNo" id="inputPassword3" placeholder="Mobile Number">
+        <input matInput name="mobileNo" type="text" class="form-control" formControlName="mobileNo" id="inputPassword3" placeholder="Mobile Number">
+        <mat-hint>number should be unique</mat-hint>
         <small *ngIf="(!registerform.get('mobileNo').valid && registerform.get('mobileNo').touched)" class="text-danger">Mobile Number is required</small>
         <!-- <small *ngIf="(registerform.get('mobileNo')['minlength'] || registerform.get('mobileNo')['maxlength'])" class="text-danger">Mobile should have 10 digit only</small> -->
       </div>
@@ -42,7 +43,7 @@
         <div class="col-sm-10">
           <input type="text" class="form-control" formControlName="collegeName" id="inputPassword3" placeholder="college Name">
           <small *ngIf="(!registerform.get('collegeName').valid&& registerform.get('collegeName').touched)" class="text-danger">College Name is required</small>
-
+          
         </div>
       </div>
     

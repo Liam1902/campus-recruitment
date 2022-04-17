@@ -11,6 +11,7 @@ import { SingleQuestionComponent } from './single-question/single-question.compo
 import { HaederComponent } from './haeder/haeder.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { NextpageComponent } from './nextpage/nextpage.component';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NextpageComponent } from './nextpage/nextpage.component';
     CommonModule,
     StudentRoutingModule,
     ReactiveFormsModule,
+    MatFormFieldModule
   ]
 })
 export class StudentModule { }

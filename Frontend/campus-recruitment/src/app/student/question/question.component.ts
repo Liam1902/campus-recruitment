@@ -14,7 +14,7 @@ export class QuestionComponent implements OnInit {
   length=0;
   question_select: any;
   gquestion :any = [];
-  
+  random:any;
   
 
   constructor(private quest: RegisterationService,
@@ -25,8 +25,11 @@ export class QuestionComponent implements OnInit {
     
   }
   
+  
   ngOnInit(): void {
     this.selectQuestion();
+    this.random=Math.floor((Math.random() * 3)+1);
+
     }
   
 

@@ -1,11 +1,58 @@
-
-       <h2 style="padding: 25px;">Question section</h2><br><br>
+<app-haeder></app-haeder>
+       <h2 style="padding: 25px;">Question section</h2><br>
    <div class="row">
 
        <div class="col-md-6" *ngFor="let ques of (gquestion || [])" style="padding: 25px;">
            <h3>{{ques.id}}</h3>
-           <h3>{{ques.questions}}</h3>
-           <button class="btn btn-primary" (click)="onSelet(ques)">Select</button>
+
+
+
+           <p class="me-5" *ngIf="random==1">
+               65432123456 <br/>
+            543212345 <br/>
+            4321234<br/>
+            32123<br/>
+            212<br/>
+            1<br/>
+            <br/>
+            n = 6<br/>
+            <br/>
+            Write a program to print above number pattern. <br/>
+            Use a variable "n" in your program to control you output rows. <br/>
+            For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
+            If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>
+
+
+
+            <p class="me-5" *ngIf="random==2">
+                65432123456 <br/>
+                543212345 <br/>
+                4321234<br/>
+                32123<br/>
+                <br/>
+                n = 6<br/>
+                <br/>
+                Write a program to print above number pattern. <br/>
+                Use a variable "n" in your program to control you output rows. <br/>
+                For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
+                If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>
+
+
+
+                <p class="me-5" *ngIf="random==3"> 
+                    65432123456 <br/>
+                    543212345 <br/>
+                    32123<br/>
+                    <br/>
+                    n = 6
+                    <br/>
+                    Write a program to print above number pattern. <br/>
+                    Use a variable "n" in your program to control you output rows. <br/>
+                    For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
+                    If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>
+
+
+           <button class="btn btn-primary" (click)="onSelet(ques)">Proceed</button>
        </div>
 
        <div class="col-md-6">

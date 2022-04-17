@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +62,10 @@ constructor(private http: HttpClient) {
  getanser(data:any):Observable<any>{
    return this.http.post('http://localhost:8080/campus_recruitment/answers',data,{headers: this.header})
  }
+
+ getanswer(): Observable<any>{
+  return this.http.get('https://jsonplaceholder.typicode.com/todos/1',{ headers:this.header}).pipe(map(response => response));;
+}
 
  getregisteration(data:any): Observable<any>{
   console.log("successfully connected ");

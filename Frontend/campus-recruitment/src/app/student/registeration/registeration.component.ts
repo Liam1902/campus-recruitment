@@ -44,8 +44,8 @@ export class RegisterationComponent implements OnInit {
         name : data.name,
         father_name : data.fatherName,
         email : data.email,
-        mobile_number : data.mobileNo,
-        college_name : data.collegeName,
+        phone_number : data.mobileNo,
+        collage_name : data.collegeName,
         branch : data.branch,
         passing_year : data.passing
       }

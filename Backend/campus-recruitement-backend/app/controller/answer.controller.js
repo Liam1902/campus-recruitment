@@ -6,7 +6,9 @@ const Op = db.Sequelize.Op;
 
 exports.Answer = (req, res) => {
   // Save User to Database
+  console.log(res.body)
   Answer.create({
+    
      student_id:req.body.student_id,
      question_id:req.body.question_id,
      answer : req.body.answer,
@@ -76,4 +78,25 @@ exports.getAnswers = (req, res) => {
   }).catch(err => {
     res.status(500).send({message: err.message});
   })
+}
+exports.updateStatus = (req, res)=>{
+  console.log(req.body)
+  answer.update({
+    status:req.body.status
+  },{
+    where:{
+      id:req.body.id
+    }
+  }).then(answer => {
+   if(answer) {
+     res.status(200).send({message: 'update Status'});
+   } else {
+     res.status(500).send({message: 'Internal server error'});
+   }
+ }).catch(err => {
+   res.status(500).send({message: err.message});
+ })
+
+
+
 }

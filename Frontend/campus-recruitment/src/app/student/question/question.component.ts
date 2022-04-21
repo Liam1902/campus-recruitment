@@ -2,6 +2,7 @@ import { RegisterationService } from './../../services/registeration.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
+
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -16,13 +17,16 @@ export class QuestionComponent implements OnInit {
   gquestion :any = [];
   random:any;
   student_id: any = null;
+  time:any;
+  getquestion:any=[];
   
 
   constructor(private quest: RegisterationService,
      private routes:Router,
       private route:ActivatedRoute,
-      private question:RegisterationService) { 
-   this.question.getquestion();
+      private question:RegisterationService,
+     ) { 
+    this.getquestion= this.question.getquestion();
     this.route.paramMap.subscribe((param: ParamMap)=> {
       this.student_id = param.get('id');
     });
@@ -30,42 +34,41 @@ export class QuestionComponent implements OnInit {
   
   
   ngOnInit(): void {
-    this.selectQuestion();
+
+    this.randomQuestion()
+    
     this.random=Math.floor((Math.random() * 3)+1);
 
+   function refresh(): void {
+    window.location.reload();
+    window.addEventListener("keyup", disableF5);
+    window.addEventListener("keydown", disableF5);
+   function disableF5(e:KeyboardEvent) {
+
+      if ((e.which || e.keyCode) == 116) e.preventDefault(); 
+   };
+}
+
+    }
+
+    randomQuestion(){
+      this.time=setTimeout(() => {
+        this.random=Math.floor((Math.random() * 3)+1);
+      }, 1800000);
     }
   
 
-  selectQuestion(){
-   this.question.getquestion().subscribe( 
-      
-    (res) => {
-      this.gquestion = res
-  },(error) =>{
-    console.log('error is runing'+ error);
-  },
-
-  );
-
-  }
+  
   public selectedQuestion:any;
 
   onSelet(data:any){
     console.log(data);
     this.call = true;
     let value = {
-      question_id: data.id,
+      question_id: data,
       student_id: this.student_id
     }
     this.selectedQuestion = value;
   }
 }
 
-
-// console.log(data.id);
-// console.log(data.question);
-// console.log(this.question_select);
-
-// this._http.getRequest().subscribe(
-//   (res: any[]) => this.requests =res
-// );

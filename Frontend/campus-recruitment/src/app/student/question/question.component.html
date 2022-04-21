@@ -1,58 +1,69 @@
 <app-haeder></app-haeder>
-       <h2 style="padding: 25px;">Question section</h2><br>
-   <div class="row">
+<div class="row">
+    
+    <div class="col-md-6"  style="padding: 25px;">
+        <mat-card>
+        <!-- <h3>{{ques.id}}</h3> -->
+        <h2 style="padding: 25px;">Question section</h2>
+        <div style="padding: 25px;">
 
-       <div class="col-md-6" *ngFor="let ques of (gquestion || [])" style="padding: 25px;">
-           <h3>{{ques.id}}</h3>
-
-
-
-           <p class="me-5" *ngIf="random==1">
-               65432123456 <br/>
-            543212345 <br/>
-            4321234<br/>
-            32123<br/>
-            212<br/>
-            1<br/>
-            <br/>
-            n = 6<br/>
+            <p class="me-5" *ngIf="random==1" >
+             1<br>
+             121<br>
+             12321<br>
+             1234321<br>
+             123454321<br>
+             12345654321<br>
+             <br><br>
+             n = 6<br>
+             Write a program to print above number pattern. <br/>
+             Use a variable "n" in your program to control you output rows. <br/>
+             For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
+             If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/>
+            </p>
+ 
+ 
+ 
+             <p class="me-5" *ngIf="random==2">
+            65432123456<br>
+            543212345<br>
+            4321234<br>
+            32123<br>
+            212<br>
+            1<br>
+            <br><br>
+            n = 6<br>
             <br/>
             Write a program to print above number pattern. <br/>
             Use a variable "n" in your program to control you output rows. <br/>
             For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
-            If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>
+            If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/>
+        </p>
+ 
+ 
+ 
+                
+             <p class="me-5" *ngIf="random==3">
+             1<br>
+             3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<br>
+             7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11<br>
+             1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7<br>
+             9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<br>
+             7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<br>
+             <br><br>
+             n = 6<br>
+             <br/>
+             Write a program to print above number pattern. <br/>
+             Use a variable "n" in your program to control you output rows. <br/>
+             For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
+             If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/>
+            </p>
+        </div>
+            <div style="padding: 25px;">
+                <button  class="btn btn-primary"  (click)="onSelet(random)" >Proceed</button>
 
-
-
-            <p class="me-5" *ngIf="random==2">
-                65432123456 <br/>
-                543212345 <br/>
-                4321234<br/>
-                32123<br/>
-                <br/>
-                n = 6<br/>
-                <br/>
-                Write a program to print above number pattern. <br/>
-                Use a variable "n" in your program to control you output rows. <br/>
-                For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
-                If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>
-
-
-
-                <p class="me-5" *ngIf="random==3"> 
-                    65432123456 <br/>
-                    543212345 <br/>
-                    32123<br/>
-                    <br/>
-                    n = 6
-                    <br/>
-                    Write a program to print above number pattern. <br/>
-                    Use a variable "n" in your program to control you output rows. <br/>
-                    For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>
-                    If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>
-
-
-           <button class="btn btn-primary" (click)="onSelet(ques)">Proceed</button>
+            </div>
+        </mat-card>
        </div>
 
        <div class="col-md-6">

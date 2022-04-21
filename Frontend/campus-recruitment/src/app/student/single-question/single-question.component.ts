@@ -3,6 +3,8 @@ import { QuestionComponent } from './../question/question.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { RegisterationService } from 'src/app/services/registeration.service';
 import { Routes, ActivatedRoute, Router } from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic'; 
+
 
 
 @Component({
@@ -11,12 +13,15 @@ import { Routes, ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./single-question.component.css']
 })
 export class SingleQuestionComponent implements OnInit {
+  public Editor=ClassicEditor;
   savequestion: any;
   minutes = 30;
   seconds = 60;
   timer: any;
-  draftTimer = 10;
+  draftTimer = 90;
   answerId = null;
+  time:any= 1*31*60;
+  
 
   interval: any;
 
@@ -30,18 +35,19 @@ export class SingleQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.questionTimer();
+    this.startTimer()
   }
-
+ 
   questionTimer() {
     this.timer = setInterval(() => {
-      if(this.minutes == 0 && this.seconds == 0) {
-        this.onSubmit(this.savequestion);
-        return;
-      } 
+      // if(this.minutes == 0 && this.seconds == 0) {
+      //   this.onSubmit(this.savequestion);
+      //   return;
+      // } 
       if(this.draftTimer === 0) {
-        this.draftTimer = 10;
-        if(this.answerId == null) {
-          this.createAnswer(this.savequestion); 
+        this.draftTimer = 90;
+        if(this.answerId == null) {  
+            this.createAnswer(this.savequestion); 
         } else {
           this.updateAnswer(this.savequestion);
         }
@@ -72,6 +78,7 @@ export class SingleQuestionComponent implements OnInit {
       student_id: this.selectedQuestion.student_id,
       question_id: this.selectedQuestion.question_id
     };
+   if(answer_data.answer != ""){
     this.registrationService.saveAnswer(answer_data).subscribe({
        next: (res: any) => {
          this.answerId = res.message.id;
@@ -81,6 +88,7 @@ export class SingleQuestionComponent implements OnInit {
          console.log('complete');
        }
     })
+   }
   } 
 
   updateAnswer(data: any) {
@@ -98,5 +106,11 @@ export class SingleQuestionComponent implements OnInit {
         console.log('complete');
       }
     })
+  }
+
+  startTimer(){
+    window.setInterval(()=>{
+      this.time--;
+    },1000)
   }
 }

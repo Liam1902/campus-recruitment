@@ -1,3 +1,4 @@
+import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NextpageComponent implements OnInit {
 
-  constructor() { }
+  constructor( private locationSt:LocationStrategy) { }
 
   ngOnInit(): void {
+    this.preventBackButton();
   }
+
+  preventBackButton(){
+    history.pushState(null,'null',location.href);
+    this.locationSt.onPopState(()=>{
+      history.pushState(null,'null',location.href)
+    })
+  }
+
 
 }

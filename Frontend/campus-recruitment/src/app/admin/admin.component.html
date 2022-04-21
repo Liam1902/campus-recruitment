@@ -1,41 +1,32 @@
 
-<nav class="navbar navbar navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" >Admin Portal </a>
-  </nav>
-
-
-      <h2>Student Exam Data</h2>
-    
-    <table>
-      <tr>
-          <th>Id</th>
-        <th>Name</th>
-        <th>Phone No.</th>
-        <th>Email</th>
-        <th>College Name</th>
-        <th>Answer</th>
-        <th> View Answer</th>
-        <th>Status</th>
-      </tr>
-        <tr *ngFor="let ans of ganswer">
-          <td>{{ans.answer.id}}</td>
-          <td>{{ans.student.name}}</td>
-          <td>{{ans.student.phone_number}}</td>
-          <td>{{ans.student.email}}</td>
-          <td>{{ans.student.college_name}}</td>
-          <td>{{ans.answer.answer}}</td>
-          <td>
-              <select>
-                  <option value=""> status</option>
-                 <!-- <small *ngIf="(!savequestion.get('passing').valid&& savequestion.get('passing').touched)" class="text-danger">Passing year is required</small> -->
-               <option value="0"> Fail</option>
-               <option value="1">Pass </option>
-               <option value="2">Hold</option>
-             </select>
-          </td>
+  <nav class="navbar navbar navbar-light" style="background-color: #e3f2fd;">
+    <img src="assets/img/logo.png"  width="80" height="30">
+      <a class="navbar-brand" >Admin Portal </a>
+    </nav>
+  
+  <div style="margin: 20px;">
+        <h2>Student Exam Data</h2> <button mat-button (click)="openDialog()">Result</button> 
+      
+      <table>
+        <tr>
+            <th>Id</th>
+          <th>Name</th>
+          <th>Phone No.</th>
+          <th>Email</th>
+          <th>College Name</th>
+          <th>status</th>
+          
         </tr>
-      
-      
-      
-    </table>
+          <tr *ngFor="let ans of ganswer" >
+            <td>{{ans.answer.id}}</td>
+            <td>{{ans.student?.name}}</td>
+            <td>{{ans.student?.phone_number}}</td>
+            <td>{{ans.student?.email}}</td>
+            <td>{{ans.student?.collage_name}}</td>
+            <td *ngIf="ans.answer.status!=null"><mat-icon>done</mat-icon></td>
+            {{ans.answer.status}}
+          </tr>
+        </table>
+      </div>
+     
 

@@ -64,11 +64,11 @@ constructor(private http: HttpClient) {
  }
 
  updateAnswer(data: any) {
-   return this.http.post('http://localhost:8080/campus_recruitment/update-answer', data, { headers: this.header});
+   return this.http.post('http://localhost:8080/campus_recruitment/update-answers', data, { headers: this.header});
  }
 
  getAnswer() {
-   return this.http.get('http://localhost:8080/campus_recruitment/get-answer', { headers: this.header});
+   return this.http.get<any>('http://localhost:8080/campus_recruitment/get-answer', { headers: this.header});
  }
 
  getregisteration(data:any): Observable<any>{
@@ -78,9 +78,18 @@ constructor(private http: HttpClient) {
 }
 
 getquestion(){
-  return this.http.get('http://localhost:8080/campus_recruitment/questions',{ headers:this.header});
+  return [
+    {question1:' 1<br>121/<br>12321<br>1234321<br>123454321<br>12345654321<br><br><br>n = 6<br>Write a program to print above number pattern. <br/>Use a variable "n" in your program to control you output rows. <br/>For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>'},
+    {question2:'65432123456<br>543212345<br>4321234<br>32123<br> 212<br>1<br> <br><br>n = 6<br><br/>Write a program to print above number pattern. <br/>Use a variable "n" in your program to control you output rows. <br/>For example: if value of the variable "n" is 6 you will see exactly same output as you can see above in this question.<br/>If you change value of variable "n" to any other number, you program must print number of rows defined by this variable "n".<br/></p>'}
+  ]
 
 }
+
+updateStatus(data:any){
+ return this.http.post('http://localhost:8080/campus_recruitment/update-status',data,{headers:this.header});
+}
+
+
 // genId(question: Hero[]): number {
 //   return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
 // }

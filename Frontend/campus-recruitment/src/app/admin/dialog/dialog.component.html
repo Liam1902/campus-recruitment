@@ -1,0 +1,32 @@
+<p>dialog works!</p>
+<div style="margin: 20px;">
+    <h2>Student Exam Data</h2>
+  
+  <table>
+    <tr>
+        <th>Id</th>
+      <th>Name</th>
+      <th>Programming Language</th>
+      <th>Question ID</th>
+      <th>Answer<mat-icon>code</mat-icon></th>
+      <th>Result</th>
+      <th></th>
+      <th></th>
+      <th>status</th>
+    </tr>
+      <tr *ngFor="let ans of ganswer" >
+        <td>{{ans.answer.id}}</td>
+        <td>{{ans.student?.name}}</td>
+        <td>{{ans.answer?.lenguage}}</td>
+        <td>{{ans.answer?.question_id}}</td>
+        <td>{{ans.answer.answer}}</td>
+        <td *ngFor="let s of filed">
+            <div (change)="changeCity($event)" >
+             <!-- <option value="" *ngFor="let l of loop"> {{l}}</option> -->      
+          </div>
+          <button class="btn btn-primary mr-5 mt-2" (click)="onclick(ans.answer.id,s)">{{s}}</button>
+        </td>
+        {{ans.answer.status}}
+      </tr>
+    </table>
+  </div>
